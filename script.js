@@ -1,117 +1,588 @@
+// =========================
+// GENERAL ELEMENTS
+// =========================
+
 const header = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 const year = document.querySelector('#year');
 const discordCopy = document.querySelector('.discord-copy');
 
+
+// =========================
+// YEAR
+// =========================
+
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+
+// =========================
+// DISCORD COPY
+// =========================
+
 if (discordCopy) {
+
   discordCopy.addEventListener('click', async () => {
+
     const username = discordCopy.dataset.discord;
 
     try {
+
       await navigator.clipboard.writeText(username);
+
       discordCopy.textContent = 'COPIED';
 
       setTimeout(() => {
         discordCopy.textContent = 'COPY';
       }, 1500);
+
     } catch {
+
       discordCopy.textContent = 'COPY FAILED';
+
+      setTimeout(() => {
+        discordCopy.textContent = 'COPY';
+      }, 1500);
+
     }
+
   });
+
 }
 
-year.textContent = new Date().getFullYear();
 
-menuToggle.addEventListener('click', () => {
-  const open = mobileMenu.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', open);
-});
+// =========================
+// MOBILE MENU
+// =========================
 
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', 'false');
+if (menuToggle && mobileMenu) {
+
+  menuToggle.addEventListener('click', () => {
+
+    const open = mobileMenu.classList.toggle('open');
+
+    menuToggle.setAttribute(
+      'aria-expanded',
+      open
+    );
+
   });
-});
 
-// Hide the header while scrolling down, reveal it while scrolling up.
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-  const current = window.scrollY;
-  if (current > 120 && current > lastScroll && !mobileMenu.classList.contains('open')) {
-    header.style.transform = 'translateY(-100%)';
-  } else {
-    header.style.transform = 'translateY(0)';
-  }
-  lastScroll = current;
-}, { passive: true });
 
-// Project filtering.
-const filters = document.querySelectorAll('.filter');
-const projects = document.querySelectorAll('.project');
+  mobileMenu.querySelectorAll('a').forEach(link => {
 
-filters.forEach(filter => {
-  filter.addEventListener('click', () => {
-    filters.forEach(item => item.classList.remove('active'));
-    filter.classList.add('active');
+    link.addEventListener('click', () => {
 
-    const value = filter.dataset.filter;
-    projects.forEach(project => {
-      project.classList.toggle('hidden', value !== 'all' && project.dataset.category !== value);
+      mobileMenu.classList.remove('open');
+
+      menuToggle.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
     });
+
   });
-});
 
-// Project modal.
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.modal-close');
-const modalImg = modal.querySelector('.modal-image img');
-const modalTitle = document.querySelector('#modal-title');
-const modalType = document.querySelector('#modal-type');
+}
 
-document.querySelectorAll('[data-project]').forEach(button => {
-  button.addEventListener('click', () => {
-    const card = button.closest('.project');
-    const image = button.querySelector('img');
 
-    modalImg.src = image.src;
-    modalImg.alt = image.alt;
-    modalTitle.textContent = card.dataset.title;
-    modalType.textContent = card.dataset.type;
+// =========================
+// HEADER HIDE / SHOW
+// =========================
 
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('modal-open');
+if (header) {
+
+  let lastScroll = 0;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+
+      const current = window.scrollY;
+
+      if (
+        current > 120 &&
+        current > lastScroll &&
+        !mobileMenu?.classList.contains('open')
+      ) {
+
+        header.style.transform =
+          'translateY(-100%)';
+
+      } else {
+
+        header.style.transform =
+          'translateY(0)';
+
+      }
+
+      lastScroll = current;
+
+    },
+    { passive: true }
+  );
+
+}
+
+
+// =========================
+// PROJECT ELEMENTS
+// =========================
+
+const projectGrid =
+  document.querySelector('#project-grid');
+
+const featuredGrid =
+  document.querySelector('#featured-project-grid');
+
+const filters =
+  document.querySelectorAll('.filter');
+
+
+// =========================
+// PROJECT MODAL ELEMENTS
+// =========================
+
+const modal =
+  document.querySelector('.modal');
+
+const modalClose =
+  document.querySelector('.modal-close');
+
+const modalImg =
+  modal?.querySelector('.modal-image img');
+
+const modalTitle =
+  document.querySelector('#modal-title');
+
+const modalType =
+  document.querySelector('#modal-type');
+
+const modalDescription =
+  document.querySelector('#modal-description');
+
+
+// =========================
+// CREATE PROJECT CARD
+// =========================
+
+function createProjectCard(project, number) {
+
+  const article =
+    document.createElement('article');
+
+  article.className = 'project';
+
+  article.dataset.id =
+    project.id;
+
+  article.dataset.category =
+    project.category;
+
+  article.dataset.title =
+    project.title;
+
+  article.dataset.type =
+    project.type;
+
+  article.dataset.description =
+    project.description;
+
+
+  article.innerHTML = `
+
+    <button
+      class="project-image"
+      type="button"
+      data-project
+    >
+
+      <img
+        src="${project.image}"
+        alt="${project.title}"
+      >
+
+      <span class="project-overlay">
+
+        <b>
+          View project
+        </b>
+
+        <i>
+          ↗
+        </i>
+
+      </span>
+
+    </button>
+
+
+    <div class="project-meta">
+
+      <div>
+
+        <span>
+          ${String(number).padStart(2, '0')}
+        </span>
+
+        <h3>
+          ${project.title}
+        </h3>
+
+      </div>
+
+      <p>
+        ${project.type}
+      </p>
+
+    </div>
+
+  `;
+
+
+  return article;
+
+}
+
+
+// =========================
+// PROJECT MODAL
+// =========================
+
+function setupProjectModals() {
+
+  document
+    .querySelectorAll('[data-project]')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+
+        const card =
+          button.closest('.project');
+
+        if (!card) return;
+
+        const projectId =
+          card.dataset.id;
+
+        window.location.href =
+          `project.html?id=${projectId}`;
+
+      });
+
+    });
+
+}
+
+
+// =========================
+// RENDER PROJECTS
+// =========================
+
+function renderProjects(category) {
+
+  if (!projectGrid) return;
+
+
+  projectGrid.innerHTML = '';
+
+
+  const filteredProjects =
+    projectData.filter(
+      project =>
+        project.category === category
+    );
+
+
+  filteredProjects.forEach(
+    (project, index) => {
+
+      const card =
+        createProjectCard(
+          project,
+          index + 1
+        );
+
+      projectGrid.appendChild(card);
+
+    }
+  );
+
+
+  setupProjectModals();
+
+}
+
+
+// =========================
+// PROJECT FILTERS
+// =========================
+
+if (projectGrid) {
+
+  filters.forEach(filter => {
+
+    filter.addEventListener(
+      'click',
+      () => {
+
+        filters.forEach(item => {
+
+          item.classList.remove(
+            'active'
+          );
+
+        });
+
+
+        filter.classList.add(
+          'active'
+        );
+
+
+        renderProjects(
+          filter.dataset.filter
+        );
+
+      }
+    );
+
   });
-});
+
+
+  /*
+    Maps is the default category.
+  */
+
+  renderProjects('maps');
+
+}
+
+
+// =========================
+// FEATURED PROJECTS
+// =========================
+
+if (featuredGrid) {
+
+  featuredGrid.innerHTML = '';
+
+
+  const featuredProjects =
+    projectData.filter(
+      project => project.featured
+    );
+
+
+  featuredProjects.forEach(
+    (project, index) => {
+
+      const card =
+        createProjectCard(
+          project,
+          index + 1
+        );
+
+      featuredGrid.appendChild(card);
+
+    }
+  );
+
+
+  setupProjectModals();
+
+}
+
+
+// =========================
+// CLOSE MODAL
+// =========================
 
 function closeModal() {
+
+  if (!modal) return;
+
   modal.classList.remove('open');
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
+
+  modal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.classList.remove(
+    'modal-open'
+  );
+
 }
 
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', event => {
-  if (event.target === modal) closeModal();
-});
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') closeModal();
-});
 
-// Subtle active navigation state.
-const sections = document.querySelectorAll('main section[id]');
-const navLinks = document.querySelectorAll('.desktop-nav a');
+// =========================
+// MODAL CONTACT BUTTON
+// =========================
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
-      });
+const modalContact =
+  document.querySelector('.modal-contact');
+
+
+if (modalContact) {
+
+  modalContact.addEventListener(
+    'click',
+    event => {
+
+      event.preventDefault();
+
+
+      closeModal();
+
+
+      setTimeout(() => {
+
+        const target =
+          document.querySelector('#contact');
+
+
+        if (target) {
+
+          window.scrollTo({
+            top: target.offsetTop,
+            behavior: 'instant'
+          });
+
+        } else {
+
+          window.location.href =
+            'index.html#contact';
+
+        }
+
+      }, 200);
+
     }
-  });
-}, { rootMargin: '-35% 0px -55% 0px' });
+  );
 
-sections.forEach(section => observer.observe(section));
+}
+
+
+// =========================
+// MODAL CLOSE BUTTON
+// =========================
+
+if (modalClose) {
+
+  modalClose.addEventListener(
+    'click',
+    closeModal
+  );
+
+}
+
+
+// =========================
+// CLICK OUTSIDE MODAL
+// =========================
+
+if (modal) {
+
+  modal.addEventListener(
+    'click',
+    event => {
+
+      if (
+        event.target === modal
+      ) {
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+}
+
+
+// =========================
+// ESCAPE KEY
+// =========================
+
+document.addEventListener(
+  'keydown',
+  event => {
+
+    if (
+      event.key === 'Escape'
+    ) {
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+// =========================
+// ACTIVE NAVIGATION
+// =========================
+
+const sections =
+  document.querySelectorAll(
+    'main section[id]'
+  );
+
+const navLinks =
+  document.querySelectorAll(
+    '.desktop-nav a'
+  );
+
+
+if (
+  sections.length &&
+  navLinks.length
+) {
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (
+            entry.isIntersecting
+          ) {
+
+            navLinks.forEach(link => {
+
+              link.classList.toggle(
+                'active',
+                link.getAttribute(
+                  'href'
+                ) ===
+                `#${entry.target.id}`
+              );
+
+            });
+
+          }
+
+        });
+
+      },
+      {
+        rootMargin:
+          '-35% 0px -55% 0px'
+      }
+    );
+
+
+  sections.forEach(section => {
+
+    observer.observe(section);
+
+  });
+
+}

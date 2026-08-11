@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="CrypticalNoise Portfolio">
   <title>CrypticalNoise — 3D Artist & Roblox Builder</title>
+  <link rel="icon" type="image/png" href="assets/iconB.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <a class="active" href="#home">Home</a>
-      <a href="#work">Work</a>
+      <a href="projects.html">Projects</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -40,7 +41,7 @@
     <section class="hero" id="home">
       <div class="hero-backdrop" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="eyebrow">ROBLOX 3D ARTIST · BUILDER · ASSET CREATOR</p>
+        <p class="eyebrow">3D ARTIST · MAP BUILDER · ASSET CREATOR</p>
         <h1>I build worlds<br><em>worth exploring.</em></h1>
         <p class="hero-copy">
           Stylised environments, game-ready assets and maps built to make players stop and look.
@@ -66,90 +67,40 @@
     </section>
 
     <section class="work section" id="work">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">SELECTED WORK</p>
-          <h2>A few things I've built.</h2>
-        </div>
-        <p class="heading-note">Click a project to inspect it.</p>
-      </div>
 
-      <div class="filters" role="tablist" aria-label="Project filters">
-        <button class="filter active" data-filter="all">All</button>
-        <button class="filter" data-filter="maps">Maps</button>
-        <button class="filter" data-filter="assets">Assets</button>
-        <button class="filter" data-filter="environments">Environments</button>
-      </div>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">SELECTED WORK</p>
+      <h2>A few things I've built.</h2>
+    </div>
 
-      <div class="project-grid">
-        <!-- Replace the image paths below with your own renders/screenshots. -->
-        <article class="project project-large" data-category="maps" data-title="School Plaza" data-type="Map Design">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-01.svg" alt="School Plaza project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>01</span><h3>School Plaza</h3></div>
-            <p>Map Design</p>
-          </div>
-        </article>
+    <p class="heading-note">
+      A selection of my work.
+    </p>
+  </div>
 
-        <article class="project" data-category="assets" data-title="Stylised Asset Pack" data-type="3D Assets">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-02.svg" alt="Stylised Asset Pack project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>02</span><h3>Stylised Asset Pack</h3></div>
-            <p>3D Assets</p>
-          </div>
-        </article>
 
-        <article class="project" data-category="environments" data-title="Nature Environment" data-type="Environment Art">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-03.svg" alt="Nature Environment project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>03</span><h3>Nature Environment</h3></div>
-            <p>Environment Art</p>
-          </div>
-        </article>
+  <div
+    class="project-grid"
+    id="featured-project-grid"
+  ></div>
 
-        <article class="project project-wide" data-category="maps" data-title="Trading Hub" data-type="Map Design">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-04.svg" alt="Trading Hub project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>04</span><h3>Trading Hub</h3></div>
-            <p>Map Design</p>
-          </div>
-        </article>
 
-        <article class="project" data-category="assets" data-title="Food & Prop Collection" data-type="Game Assets">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-05.svg" alt="Food and prop collection project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>05</span><h3>Food & Props</h3></div>
-            <p>Game Assets</p>
-          </div>
-        </article>
+  <!-- VIEW ALL PROJECTS BUTTON -->
 
-        <article class="project" data-category="environments" data-title="Stylised Lobby" data-type="Environment Art">
-          <button class="project-image" type="button" data-project>
-            <img src="assets/projects/project-06.svg" alt="Stylised Lobby project preview">
-            <span class="project-overlay"><b>View project</b><i>↗</i></span>
-          </button>
-          <div class="project-meta">
-            <div><span>06</span><h3>Stylised Lobby</h3></div>
-            <p>Environment Art</p>
-          </div>
-        </article>
-      </div>
-    </section>
+  <div class="view-all-projects">
+
+    <a
+      href="projects.html"
+      class="view-all-button"
+    >
+      View all projects
+      <span>↗</span>
+    </a>
+
+  </div>
+
+</section>
 
     <section class="statement">
       <div class="statement-inner">
@@ -255,13 +206,13 @@
       <div class="modal-info">
         <p class="eyebrow" id="modal-type"></p>
         <h2 id="modal-title"></h2>
-        <p>Replace this text with a short breakdown of the project: your role, what you built,
-          the style direction, and any details worth highlighting.</p>
-        <a href="#contact" class="button button-solid modal-contact">Discuss a project</a>
+        <p id="modal-description"></p>
+        <a href="index.html#contact" class="button button-solid modal-contact">Discuss a project</a>
       </div>
     </div>
   </div>
 
+  <script src="projects.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

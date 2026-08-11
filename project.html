@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="CrypticalNoise project"
+  >
+
+  <title>Project — CrypticalNoise</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/iconB.png"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <a
+      class="brand"
+      href="index.html"
+    >
+      crypticalnoise<span>.</span>
+    </a>
+
+
+    <nav
+      class="desktop-nav"
+      aria-label="Main navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a
+        class="active"
+        href="projects.html"
+      >
+        Projects
+      </a>
+
+      <a href="index.html#about">
+        About
+      </a>
+
+      <a href="index.html#contact">
+        Contact
+      </a>
+
+    </nav>
+
+
+    <button
+      class="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+
+      <span></span>
+      <span></span>
+
+    </button>
+
+  </header>
+
+
+  <!-- MOBILE MENU -->
+
+  <div class="mobile-menu">
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <a href="projects.html">
+      Projects
+    </a>
+
+    <a href="index.html#about">
+      About
+    </a>
+
+    <a href="index.html#contact">
+      Contact
+    </a>
+
+  </div>
+
+
+  <main id="project-detail">
+
+
+    <!-- PROJECT HEADER -->
+
+    <section class="project-detail-hero">
+
+      <div>
+
+        <p
+          class="eyebrow"
+          id="project-type"
+        ></p>
+
+        <h1 id="project-title"></h1>
+
+      </div>
+
+
+      <p id="project-description"></p>
+
+    </section>
+
+
+    <!-- PROJECT GALLERY -->
+
+    <section class="project-gallery">
+
+      <div id="project-media"></div>
+
+    </section>
+
+
+    <!-- PROJECT FOOTER -->
+
+    <section class="project-detail-bottom">
+
+      <a href="projects.html">
+        ← Back to projects
+      </a>
+
+      <a href="index.html#contact">
+        Discuss a project ↗
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      © <span id="year"></span> CrypticalNoise
+    </span>
+
+    <span>
+      ROBLOX 3D ART · MAPS · ASSETS
+    </span>
+
+    <a href="#top">
+      BACK TO TOP ↑
+    </a>
+
+  </footer>
+
+
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+
+
+  <script>
+
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    const projectId =
+      params.get('id');
+
+
+    const project =
+      projectData.find(
+        item => item.id === projectId
+      );
+
+
+    if (!project) {
+
+      window.location.href =
+        'projects.html';
+
+    }
+
+
+    if (project) {
+
+      document.title =
+        `${project.title} — CrypticalNoise`;
+
+
+      document.querySelector(
+        '#project-type'
+      ).textContent =
+        project.type;
+
+
+      document.querySelector(
+        '#project-title'
+      ).textContent =
+        project.title;
+
+
+      document.querySelector(
+        '#project-description'
+      ).textContent =
+        project.description;
+
+
+      const media =
+        document.querySelector(
+          '#project-media'
+        );
+
+
+      project.gallery.forEach(
+        image => {
+
+          const img =
+            document.createElement('img');
+
+          img.src = image;
+
+          img.alt =
+            project.title;
+
+          media.appendChild(img);
+
+        }
+      );
+
+
+      project.videos.forEach(
+        video => {
+
+          const videoElement =
+            document.createElement('video');
+
+          videoElement.src =
+            video;
+
+          videoElement.controls = true;
+
+          videoElement.playsInline = true;
+
+          media.appendChild(
+            videoElement
+          );
+
+        }
+      );
+
+    }
+
+
+    document.querySelector(
+      '#year'
+    ).textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+
+</html>
