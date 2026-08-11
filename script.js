@@ -2,6 +2,24 @@ const header = document.querySelector('.site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
 const year = document.querySelector('#year');
+const discordCopy = document.querySelector('.discord-copy');
+
+if (discordCopy) {
+  discordCopy.addEventListener('click', async () => {
+    const username = discordCopy.dataset.discord;
+
+    try {
+      await navigator.clipboard.writeText(username);
+      discordCopy.textContent = 'COPIED';
+
+      setTimeout(() => {
+        discordCopy.textContent = 'COPY';
+      }, 1500);
+    } catch {
+      discordCopy.textContent = 'COPY FAILED';
+    }
+  });
+}
 
 year.textContent = new Date().getFullYear();
 
