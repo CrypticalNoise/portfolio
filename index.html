@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nuubzzz — Roblox 3D artist, environment builder and game asset creator.">
+  <title>Nuubzzz — 3D Artist & Roblox Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Nuubzzz home">nuubzzz<span>.</span></a>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu">
+    <a href="#top">Home</a>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">ROBLOX 3D ARTIST · BUILDER · ASSET CREATOR</p>
+        <h1>I build worlds<br><em>worth exploring.</em></h1>
+        <p class="hero-copy">
+          Stylised environments, game-ready assets and maps built to make players stop and look.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-solid" href="#work">View my work</a>
+          <a class="button button-ghost" href="#contact">Let's work together</a>
+        </div>
+      </div>
+      <div class="hero-scroll">SCROLL <span></span></div>
+    </section>
+
+    <section class="intro section">
+      <div class="intro-label">01 / INTRO</div>
+      <div>
+        <h2>Visuals first.<br><span>Everything else follows.</span></h2>
+        <p>
+          I'm a Roblox 3D artist focused on building memorable environments, modular assets
+          and complete map experiences. I like simple ideas executed with enough detail that
+          the final scene does the talking.
+        </p>
+      </div>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECTED WORK</p>
+          <h2>A few things I've built.</h2>
+        </div>
+        <p class="heading-note">Click a project to inspect it.</p>
+      </div>
+
+      <div class="filters" role="tablist" aria-label="Project filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="maps">Maps</button>
+        <button class="filter" data-filter="assets">Assets</button>
+        <button class="filter" data-filter="environments">Environments</button>
+      </div>
+
+      <div class="project-grid">
+        <!-- Replace the image paths below with your own renders/screenshots. -->
+        <article class="project project-large" data-category="maps" data-title="School Plaza" data-type="Map Design">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-01.svg" alt="School Plaza project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>01</span><h3>School Plaza</h3></div>
+            <p>Map Design</p>
+          </div>
+        </article>
+
+        <article class="project" data-category="assets" data-title="Stylised Asset Pack" data-type="3D Assets">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-02.svg" alt="Stylised Asset Pack project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>02</span><h3>Stylised Asset Pack</h3></div>
+            <p>3D Assets</p>
+          </div>
+        </article>
+
+        <article class="project" data-category="environments" data-title="Nature Environment" data-type="Environment Art">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-03.svg" alt="Nature Environment project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>03</span><h3>Nature Environment</h3></div>
+            <p>Environment Art</p>
+          </div>
+        </article>
+
+        <article class="project project-wide" data-category="maps" data-title="Trading Hub" data-type="Map Design">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-04.svg" alt="Trading Hub project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>04</span><h3>Trading Hub</h3></div>
+            <p>Map Design</p>
+          </div>
+        </article>
+
+        <article class="project" data-category="assets" data-title="Food & Prop Collection" data-type="Game Assets">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-05.svg" alt="Food and prop collection project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>05</span><h3>Food & Props</h3></div>
+            <p>Game Assets</p>
+          </div>
+        </article>
+
+        <article class="project" data-category="environments" data-title="Stylised Lobby" data-type="Environment Art">
+          <button class="project-image" type="button" data-project>
+            <img src="assets/projects/project-06.svg" alt="Stylised Lobby project preview">
+            <span class="project-overlay"><b>View project</b><i>↗</i></span>
+          </button>
+          <div class="project-meta">
+            <div><span>06</span><h3>Stylised Lobby</h3></div>
+            <p>Environment Art</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="statement">
+      <div class="statement-inner">
+        <p class="eyebrow">MY APPROACH</p>
+        <h2>Don't make a map.<br><span>Make a place.</span></h2>
+        <p>
+          Strong silhouettes, intentional composition, reusable assets and details that reward
+          the player for looking closer.
+        </p>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="intro-label">02 / ABOUT</div>
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">WHO I AM</p>
+          <h2>3D artist with a thing for <span>good spaces.</span></h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            I create Roblox-ready 3D assets and environments with a stylised, game-focused
+            approach. From a single prop to a full playable map, I care about how every piece
+            contributes to the bigger picture.
+          </p>
+          <p>
+            My work covers modelling, scene composition, modular kits, materials, lighting
+            and map building — with an emphasis on visuals that are immediately readable.
+          </p>
+          <div class="skills">
+            <span>Roblox Studio</span><span>Blender</span><span>3D Modelling</span>
+            <span>Environment Art</span><span>Map Building</span><span>PBR</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-card">
+        <p class="eyebrow">03 / CONTACT</p>
+        <h2>Have a world<br>in mind?</h2>
+        <p>Tell me what you're building and let's make it look memorable.</p>
+        <a class="contact-email" href="mailto:your@email.com">your@email.com <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> Nuubzzz</span>
+    <span>ROBLOX 3D ART · MAPS · ASSETS</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <div class="modal" aria-hidden="true">
+    <button class="modal-close" aria-label="Close project">×</button>
+    <div class="modal-content">
+      <div class="modal-image"><img src="" alt=""></div>
+      <div class="modal-info">
+        <p class="eyebrow" id="modal-type"></p>
+        <h2 id="modal-title"></h2>
+        <p>Replace this text with a short breakdown of the project: your role, what you built,
+          the style direction, and any details worth highlighting.</p>
+        <a href="#contact" class="button button-solid modal-contact">Discuss a project</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
