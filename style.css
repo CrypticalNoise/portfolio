@@ -523,6 +523,11 @@ footer a:hover { color: #111; }
   min-height: auto;
 }
 
+.button {
+  justify-content: center;
+  text-align: center;
+}
+
 .contact-intro {
   padding: 50px 30px 35px;
 }
