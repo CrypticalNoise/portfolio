@@ -211,7 +211,7 @@ img { display: block; max-width: 100%; }
   position: relative; overflow: hidden;
 }
 .contact-card::after {
-  content: "CrypticalNoise";
+  content: "CRYPTICALNOISE";
   position: absolute; right: -30px; bottom: -70px;
   font-size: clamp(90px, 16vw, 240px); font-weight: 800; letter-spacing: -.09em;
   color: rgba(0,0,0,.045); pointer-events: none;
