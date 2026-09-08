@@ -42,8 +42,7 @@ const projectData = [
     gallery: [
       "assets/projects/storage-map/01.webp",
       "assets/projects/storage-map/02.webp",
-      "assets/projects/storage-map/03.webp",
-      "assets/projects/storage-map/04.webp"
+      "assets/projects/storage-map/03.webp"
     ],
     videos: []
   },

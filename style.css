@@ -772,3 +772,205 @@ footer a:hover { color: #111; }
   }
 
 }
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-page {
+  width: min(var(--max), calc(100% - 84px));
+  margin: 0 auto;
+  padding-top: 190px;
+  padding-bottom: 150px;
+}
+
+.settings-heading h1 {
+  margin: 0;
+  font-size: clamp(70px, 10vw, 140px);
+  line-height: .85;
+  letter-spacing: -.08em;
+}
+
+.settings-heading h1 span {
+  color: #999;
+}
+
+.settings-option {
+  margin-top: 100px;
+  padding: 35px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.settings-label {
+  display: block;
+  margin-bottom: 12px;
+  color: #999;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+}
+
+.settings-option h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -.03em;
+}
+
+.settings-option p {
+  max-width: 500px;
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.theme-toggle {
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.theme-toggle-track {
+  width: 52px;
+  height: 28px;
+  padding: 3px;
+  border-radius: 999px;
+  background: #d0d0cc;
+  display: flex;
+  align-items: center;
+  transition: background .25s ease;
+}
+
+.theme-toggle-knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  transition: transform .25s ease;
+}
+
+.theme-toggle.active .theme-toggle-track {
+  background: #111;
+}
+
+.theme-toggle.active .theme-toggle-knob {
+  transform: translateX(24px);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode {
+  --bg: #101010;
+  --paper: #181818;
+  --ink: #f5f5f3;
+  --muted: #999;
+  --line: #303030;
+}
+
+body.dark-mode .site-header {
+  background: rgba(16,16,16,.88);
+  border-color: rgba(255,255,255,.08);
+}
+
+body.dark-mode .brand span {
+  color: #777;
+}
+
+body.dark-mode .desktop-nav a::after {
+  background: white;
+}
+
+body.dark-mode .intro p,
+body.dark-mode .about-copy p {
+  color: #aaa;
+}
+
+body.dark-mode .project-meta {
+  border-color: #333;
+}
+
+body.dark-mode .project-image {
+  background: #222;
+}
+
+body.dark-mode .filters .filter {
+  border-color: #333;
+  color: #aaa;
+}
+
+body.dark-mode .filters .filter:hover,
+body.dark-mode .filters .filter.active {
+  background: white;
+  color: #111;
+  border-color: white;
+}
+
+body.dark-mode .skills span {
+  border-color: #333;
+  color: #aaa;
+}
+
+body.dark-mode .contact-layout {
+  background: #181818;
+}
+
+body.dark-mode .contact-details {
+  background: #111;
+  border-color: #333;
+}
+
+body.dark-mode .contact-detail-value {
+  color: #f5f5f3;
+  border-color: #f5f5f3;
+}
+
+body.dark-mode .contact-divider {
+  background: #333;
+}
+
+body.dark-mode .discord-copy {
+  border-color: #444;
+  color: #aaa;
+}
+
+body.dark-mode .discord-copy:hover {
+  background: white;
+  color: #111;
+  border-color: white;
+}
+
+body.dark-mode .mobile-menu {
+  background: rgba(16,16,16,.98);
+  border-color: #303030;
+}
+
+body.dark-mode .mobile-menu a {
+  color: #f5f5f3;
+}
+
+body.dark-mode .settings-option {
+  border-color: #333;
+}
+
+body.dark-mode .settings-option p {
+  color: #aaa;
+}
+
+body.dark-mode footer {
+  border-color: #303030;
+}

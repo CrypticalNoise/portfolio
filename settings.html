@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="CrypticalNoise — Settings."
+  >
+
+  <title>Settings — CrypticalNoise</title>
+
+  <link rel="icon" type="image/png" href="assets/iconB.png">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <a class="brand" href="index.html">
+      CrypticalNoise<span>.</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="active" href="settings.html">Settings</a>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+  </header>
+
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+
+  <main>
+
+    <section class="settings-page">
+
+      <div class="settings-heading">
+        <p class="eyebrow">PREFERENCES</p>
+
+        <h1>
+          Site<br>
+          <span>settings.</span>
+        </h1>
+      </div>
+
+
+      <div class="settings-option">
+
+        <div>
+          <span class="settings-label">
+            APPEARANCE
+          </span>
+
+          <h2>Dark mode</h2>
+
+          <p>
+            Switch between the default light theme and a darker
+            version of the portfolio.
+          </p>
+        </div>
+
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          type="button"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-knob"></span>
+          </span>
+
+          <span id="theme-label">OFF</span>
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <span>© <span id="year"></span> CrypticalNoise</span>
+    <span>Roblox 3D Artist</span>
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
