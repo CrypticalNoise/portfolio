@@ -67,9 +67,7 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 .hero-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, .10);
+  display: none;
 }
 .hero-content {
   position: relative; z-index: 2;
