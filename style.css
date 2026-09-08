@@ -69,18 +69,7 @@ img { display: block; max-width: 100%; }
 .hero-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .15);
-}
-.hero-backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0,0,0,.85) 0%,
-    rgba(0,0,0,.55) 48%,
-    rgba(0,0,0,.20) 100%
-  );
+  background: rgba(0, 0, 0, .10);
 }
 .hero-content {
   position: relative; z-index: 2;
