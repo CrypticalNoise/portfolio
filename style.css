@@ -59,25 +59,28 @@ img { display: block; max-width: 100%; }
   position: relative;
   display: flex;
   align-items: center;
-  background: var(--dark);
+  background-image: url("assets/hero.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   overflow: hidden;
 }
 .hero-backdrop {
   position: absolute;
   inset: 0;
-  opacity: .65;
-  background:
-    radial-gradient(circle at 72% 35%, rgba(255,255,255,.18), transparent 26%),
-    linear-gradient(120deg, transparent 25%, rgba(255,255,255,.07) 25.2%, transparent 25.5%),
-    linear-gradient(40deg, transparent 60%, rgba(255,255,255,.05) 60.2%, transparent 60.5%),
-    radial-gradient(circle at 80% 70%, #4a4a4a, transparent 30%),
-    linear-gradient(135deg, #111 0%, #292929 50%, #070707 100%);
+  background: rgba(0, 0, 0, .25);
 }
 .hero-backdrop::after {
   content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.58) 48%, rgba(0,0,0,.25) 100%);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.85) 0%,
+    rgba(0,0,0,.55) 48%,
+    rgba(0,0,0,.20) 100%
+  );
 }
 .hero-content {
   position: relative; z-index: 2;
